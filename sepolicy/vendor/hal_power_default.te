@@ -20,3 +20,8 @@ set_prop(hal_power_default, power_prop)
 
 # To dump
 allow hal_power_default cgroup:file read;
+
+# Allow writing to files in /proc/tp_gesture
+allow hal_power_default proc:file rw_file_perms;
+allow hal_power_default proc:dir search;
+
