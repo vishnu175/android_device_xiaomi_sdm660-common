@@ -48,14 +48,11 @@ def cleanup():
         # Drop SHA1 hash, if existing
         if '|' in line:
             line = line.split('|')[0]
-            lines[index] = '%s\n' % (line)
+            lines[index] = '%s' % (line)
 
 
 def update():
     for index, line in enumerate(lines):
-        # Remove '\n' character
-        line = line[:-1]
-
         # Skip empty lines
         if len(line) == 0:
             continue
@@ -86,7 +83,7 @@ def update():
                 file = open('%s/%s' % (vendorPath, filePath), 'rb').read()
 
             hash = sha1(file).hexdigest()
-            lines[index] = '%s|%s\n' % (line, hash)
+            lines[index] = '%s|%s' % (line, hash)
 
 
 if len(sys.argv) == 2 and sys.argv[1] == '-c':
