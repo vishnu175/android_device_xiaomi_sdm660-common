@@ -46,9 +46,7 @@ def cleanup():
             continue
 
         # Drop SHA1 hash, if existing
-        if '|' in line:
-            line = line.split('|')[0]
-            lines[index] = '%s' % (line)
+        lines[index] = line.split('|')[0]
 
 
 def update():
@@ -77,12 +75,13 @@ def update():
             filePath = line.split(':')[1] if len(
                 line.split(':')) == 2 else line
 
+            filePath = line.split(';')[0].split(':')[-1]
             if filePath[0] == '-':
-                file = open('%s/%s' % (vendorPath, filePath[1:]), 'rb').read()
-            else:
-                file = open('%s/%s' % (vendorPath, filePath), 'rb').read()
+                filePath = filePath[1:]
 
-            hash = sha1(file).hexdigest()
+            with open(os.path.join(vendorPath, filePath), 'rb') as f:
+                hash = sha1(f.read()).hexdigest()
+
             lines[index] = '%s|%s' % (line, hash)
 
 
