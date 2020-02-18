@@ -31,8 +31,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 # Inherit proprietary files
 $(call inherit-product, vendor/xiaomi/sdm660-common/sdm660-common-vendor.mk)
-$(call inherit-product-if-exists, vendor/xiaomi/MiuiCamera/config.mk)
-$(call inherit-product-if-exists, vendor/gapps/common/common-vendor.mk)
 
 # Common Tree Path
 COMMON_PATH := device/xiaomi/sdm660-common
@@ -69,7 +67,7 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/audio/audio_output_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_output_policy.conf \
     $(COMMON_PATH)/configs/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
     $(COMMON_PATH)/configs/audio/audio_tuning_mixer.txt:$(TARGET_COPY_OUT_VENDOR)/etc/audio_tuning_mixer.txt \
-		$(COMMON_PATH)/configs/audio/audio_policy_configuration_a2dp_offload_disabled.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_a2dp_offload_disabled.xml \
+    $(COMMON_PATH)/configs/audio/audio_policy_configuration_a2dp_offload_disabled.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_a2dp_offload_disabled.xml \
     $(COMMON_PATH)/configs/audio/graphite_ipc_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/graphite_ipc_platform_info.xml \
     $(COMMON_PATH)/configs/audio/listen_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/listen_platform_info.xml \
     $(COMMON_PATH)/configs/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_mixer_paths.xml \
@@ -115,9 +113,6 @@ PRODUCT_PACKAGES += \
     libsndmonitor \
     vendor.qti.hardware.bluetooth_audio@2.0.vendor
 
-# Boot animation
-TARGET_BOOTANIMATION_SIZE := 1080p
-
 # Broadcastradio
 PRODUCT_PACKAGES += \
     android.hardware.broadcastradio@1.0-impl
@@ -129,7 +124,6 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-service \
     android.hardware.camera.provider@2.5 \
     vendor.qti.hardware.camera.device@1.0 \
-    Snap
 
 # Codec2 modules
 PRODUCT_PACKAGES += \
@@ -294,10 +288,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.xiaomi_sdm660
 
-# LiveDisplay native
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-sdm
-
 # Media
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
@@ -341,8 +331,7 @@ PRODUCT_PACKAGES += \
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(COMMON_PATH)/overlay \
-    $(COMMON_PATH)/overlay-lineage
+    $(COMMON_PATH)/overlay
 
 # Permissions
 PRODUCT_COPY_FILES += \
