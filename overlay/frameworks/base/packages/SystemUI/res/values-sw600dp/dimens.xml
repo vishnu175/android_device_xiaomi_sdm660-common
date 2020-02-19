@@ -23,4 +23,5 @@
     <!-- Width for the spacer, used between QS tiles. -->
     <dimen name="qs_quick_tile_space_width">0dp</dimen>
 
+    <dimen name="rounded_corner_content_padding">14dp</dimen>
 </resources>
