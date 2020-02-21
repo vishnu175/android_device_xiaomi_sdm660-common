@@ -71,27 +71,3 @@ void property_override_dual(char const system_prop[],
     property_override(system_prop, value);
     property_override(vendor_prop, value);
 }
-
-void vendor_load_persist_properties()
-{
-    std::string product = GetProperty("ro.product.vendor.device", "");
-    if (product.find("clover") != std::string::npos) {
-
-    std::string hw_device;
-
-    char const *hw_id_file = "/sys/devices/platform/HardwareInfo/hw_id";
-
-    ReadFileToString(hw_id_file, &hw_device);
-    if (hw_device.find("D9P") != std::string::npos) {
-        property_override("persist.sys.fp.vendor", "fpc");
-        property_override("ro.board.variant", "d9p");
-        property_override("vendor.display.lcd_density", "265");
-        property_override_dual("ro.product.model", "ro.vendor.product.model", "MI PAD 4 PLUS");
-    } else {
-        property_override("persist.sys.fp.vendor", "none");
-        property_override("ro.board.variant", "d9");
-        property_override("vendor.display.lcd_density", "320");
-        property_override_dual("ro.product.model", "ro.vendor.product.model", "MI PAD 4");
-    }
-  }
-}
