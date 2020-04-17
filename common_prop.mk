@@ -291,7 +291,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.gpu_comp_tiling=1 \
     debug.sf.recomputecrop=0 \
     persist.hwc.ptor.enable=true \
-    debug.sdm.support_writeback=0
+    debug.sdm.support_writeback=0 \
+    debug.hwui.renderer=skiavk
 
 # Sensor
 PRODUCT_PROPERTY_OVERRIDES += \
