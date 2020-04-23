@@ -135,6 +135,9 @@ DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
 endif
 DEVICE_MATRIX_FILE := $(COMMON_PATH)/compatibility_matrix.xml
 
+# Props
+TARGET_PRODUCT_PROP += $(COMMON_PATH)/product.prop
+
 # HWUI
 HWUI_COMPILE_FOR_PERF := true
 
