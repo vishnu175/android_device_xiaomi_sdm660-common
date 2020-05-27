@@ -622,6 +622,17 @@ typedef uint16_t GnssMeasUsageInfoValidityMask;
 #define GNSS_CARRIER_PHASE_RESIDUAL_VALID       ((GnssMeasUsageInfoValidityMask)0x00000004ul)
 #define GNSS_CARRIER_PHASE_AMBIGUITY_TYPE_VALID ((GnssMeasUsageInfoValidityMask)0x00000008ul)
 
+typedef uint16_t GnssSvPolyStatusMask;
+#define GNSS_SV_POLY_SRC_ALM_CORR_V02 ((GnssSvPolyStatusMask)0x01)
+#define GNSS_SV_POLY_GLO_STR4_V02 ((GnssSvPolyStatusMask)0x02)
+#define GNSS_SV_POLY_DELETE_V02 ((GnssSvPolyStatusMask)0x04)
+#define GNSS_SV_POLY_SRC_GAL_FNAV_OR_INAV_V02 ((GnssSvPolyStatusMask)0x08)
+typedef uint16_t GnssSvPolyStatusMaskValidity;
+#define GNSS_SV_POLY_SRC_ALM_CORR_VALID_V02 ((GnssSvPolyStatusMaskValidity)0x01)
+#define GNSS_SV_POLY_GLO_STR4_VALID_V02 ((GnssSvPolyStatusMaskValidity)0x02)
+#define GNSS_SV_POLY_DELETE_VALID_V02 ((GnssSvPolyStatusMaskValidity)0x04)
+#define GNSS_SV_POLY_SRC_GAL_FNAV_OR_INAV_VALID_V02 ((GnssSvPolyStatusMaskValidity)0x08)
+
 
 typedef struct {
     /** Specifies GNSS signal type
@@ -1014,9 +1025,14 @@ typedef uint32_t LOC_GPS_LOCK_MASK;
 #define isGpsLockAll(lock) (((lock) & ((LOC_GPS_LOCK_MASK)3)) == 3)
 
 /*++ ***********************************************
-**  Satellite Measurement Structure definitions
+**  Satellite Measurement and Satellite Polynomial
+**  structure definitions
 **  ***********************************************
 --*/
+#define GNSS_SV_POLY_VELOCITY_COEF_MAX_SIZE         12
+#define GNSS_SV_POLY_XYZ_0_TH_ORDER_COEFF_MAX_SIZE  3
+#define GNSS_SV_POLY_XYZ_N_TH_ORDER_COEFF_MAX_SIZE  9
+#define GNSS_SV_POLY_SV_CLKBIAS_COEFF_MAX_SIZE      4
 /** Max number of GNSS SV measurement */
 #define GNSS_LOC_SV_MEAS_LIST_MAX_SIZE              128
 
