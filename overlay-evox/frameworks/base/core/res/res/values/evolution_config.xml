@@ -17,8 +17,10 @@
     <!-- Whether device has dash charging support -->
     <bool name="config_hasDashCharger">false</bool>
 
-    <!-- Smart charge sysfs node and value for suspend/resume charging-->
+    <!-- Smart charging -->
     <bool name="config_SmartChargingAvailable">true</bool>
+    <integer name="config_SmartChargingBatteryLevel">80</integer>
+    <integer name="config_SmartChargingBatteryResumeLevel">15</integer>
     <string name="config_SmartChargingSysfsNode" translatable="false">/sys/class/power_supply/battery/charging_enabled</string>
     <string name="config_SmartChargingSuspendValue" translatable="false">0</string>
     <string name="config_SmartChargingResumeValue" translatable="false">1</string>
