@@ -191,6 +191,10 @@ PRODUCT_PACKAGES += \
 # Dalvik
 $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk )
 
+# DeviceParts
+PRODUCT_PACKAGES += \
+   DeviceParts
+   
 # Display
 PRODUCT_PACKAGES += \
     android.frameworks.displayservice@1.0 \
@@ -214,7 +218,7 @@ PRODUCT_PACKAGES += \
 
 # Doze
 PRODUCT_PACKAGES += \
-    XiaomiDoze
+    DeviceDoze
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -307,7 +311,7 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.sh \
     init.recovery.qcom.rc \
     init.target.rc \
-    init.xiaomi_parts.rc \
+    init.device_parts.rc \
     init.performance.sdm660.rc \
     ueventd.qcom.rc
 
@@ -598,7 +602,3 @@ PRODUCT_PACKAGES += \
 # WiFi Display JAR
 PRODUCT_BOOT_JARS += \
     WfdCommon
-
-# XiaomiParts
-PRODUCT_PACKAGES += \
-   XiaomiParts

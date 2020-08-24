@@ -34,7 +34,7 @@ genfscon sysfs /devices/soc/800f000.qcom,spmi/spmi-0/spmi0-00/800f000.qcom,spmi:
 genfscon proc /nvt_wake_gesture                                 u:object_r:proc_dt2w:s0
 genfscon sysfs /touchpanel                                      u:object_r:sysfs_touchpanel:s0
 
-# XiaomiParts
+# DeviceParts
 genfscon sysfs /devices/virtual/graphics/fb0/measured_fps       u:object_r:sysfs_fpsinfo:s0
 genfscon sysfs /class/graphics/fb0/measured_fps                 u:object_r:sysfs_fpsinfo:s0
 genfscon sysfs /kernel/sound_control/headphone_gain             u:object_r:sysfs_headphonegain:s0
